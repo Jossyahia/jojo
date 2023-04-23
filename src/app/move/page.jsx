@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -9,10 +9,11 @@ export default function MoviePage() {
     const res = await fetch(`https://newal.onrender.com/api`);
     const movieData = await res.json();
     setMovie(movieData);
+    console.log(movieData);
   }
 
   useEffect(() => {
-    fetchMovie(result);
+    fetchMovie();
   }, []);
 
   if (!movie) {
@@ -24,7 +25,7 @@ export default function MoviePage() {
       <div className="p-4 md:pt-8 flex flex-col md:flex-row items-center content-center max-w-6xl mx-auto md:space-x-6">
         <div className="w-80 h-48 relative">
           <Image
-            src={movie.image}
+            src={movieData.image}
             layout="fill"
             objectFit="cover"
             objectPosition="center"
@@ -35,18 +36,18 @@ export default function MoviePage() {
           />
         </div>
         <div className="p-2">
-          <h2 className="text-lg mb-3 font-bold">{movie.title}</h2>
+          <h2 className="text-lg mb-3 font-bold">{movieData.title}</h2>
           <p className="text-lg mb-3">
             <span className="font-semibold mr-1">Overview:</span>
-            {movie.description}
+            {movieData.description}
           </p>
           <p className="mb-3">
             <span className="font-semibold mr-1">Date Released:</span>
-            {new Date(movie.createdAt).toLocaleDateString()}
+            {new Date(movieData.createdAt).toLocaleDateString()}
           </p>
           <p className="mb-3">
             <span className="font-semibold mr-1">Rating:</span>
-            {movie.likes}
+            {movieData.likes}
           </p>
         </div>
       </div>

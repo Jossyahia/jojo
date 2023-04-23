@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
 
           {/* SearchBox */}
 
-          <SearchBox />
+         {/*compont itself <SearchBox >*/}
 
           {children}
         </Providers>
