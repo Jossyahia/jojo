@@ -1,52 +1,42 @@
-"use client"
-import { useState, useEffect } from "react";
 import Image from "next/image";
 
-export default function MoviePage() {
-  const [movie, setMovie] = useState(null);
+async function getMovie(_id) {
+  const res = await fetch(`https://newal.onrender.com/api/${_id}`);
+  return await res.json();
+}
 
-  async function fetchMovie() {
-    const res = await fetch(`https://newal.onrender.com/api`);
-    const movieData = await res.json();
-    setMovie(movieData);
-  }
-
-  useEffect(() => {
-    fetchMovie(result);
-  }, []);
-
-  if (!movie) {
-    return <div>Loading...</div>;
-  }
-
+export default async function MoviePage({ params }) {
+  const _id = params.id;
+  const result = await getMovie(_id);
   return (
     <div className="w-full">
       <div className="p-4 md:pt-8 flex flex-col md:flex-row items-center content-center max-w-6xl mx-auto md:space-x-6">
-        <div className="w-80 h-48 relative">
-          <Image
-            src={movie.image}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            className="rounded-lg group-hover:opacity-80 transition-opacity duration-200"
-            placeholder="blur"
-            blurDataURL="/spinner.svg"
-            alt="image is not available"
-          />
-        </div>
+        <Image
+          src={result.image}
+          width={500}
+          height={300}
+          className="rounded-lg"
+          style={{
+            maxWidth: "100%",
+            height: "100%",
+          }}
+          placeholder="blur"
+          blurDataURL="/spinner.svg"
+          alt="Product Image"
+        ></Image>
         <div className="p-2">
-          <h2 className="text-lg mb-3 font-bold">{movie.title}</h2>
+          <h2 className="text-lg mb-3 font-bold">{result.title}</h2>
           <p className="text-lg mb-3">
-            <span className="font-semibold mr-1">Overview:</span>
-            {movie.description}
+            <span className="font-semibold mr-1">Product Description:</span>
+            {result.description}
           </p>
           <p className="mb-3">
             <span className="font-semibold mr-1">Date Released:</span>
-            {new Date(movie.createdAt).toLocaleDateString()}
+            {result.createdAt}
           </p>
           <p className="mb-3">
-            <span className="font-semibold mr-1">Rating:</span>
-            {movie.likes}
+            <span className="font-semibold mr-1">Likes:</span>
+            {result.likes}
           </p>
         </div>
       </div>
