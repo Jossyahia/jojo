@@ -1,7 +1,10 @@
+"use static"
 import Image from "next/image";
 
 async function getMovie(_id) {
-  const res = await fetch(`https://newal.onrender.com/api/${_id}`);
+  const res = await fetch(
+    `https://victorious-teal-school-uniform.cyclic.app/api/${_id}`
+  );
   return await res.json();
 }
 

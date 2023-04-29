@@ -2,15 +2,15 @@
 
 // for more info "https://github.com/vercel/next.js/issues/43077"
 
-export const dynamic = "force-dynamic"; // this is the fix
+//export const dynamic = "force-dynamic"; // this is the fix
 
 import Results from "@/components/Results";
 
 export default async function Home({ searchParams }) {
-  const genre = searchParams.genre || "fetchTrending";
+  const likes = searchParams.likes || "fetchTrending";
 
   const res = await fetch(
-    `https://newal.onrender.com/api`,
+    `https://victorious-teal-school-uniform.cyclic.app/api`,
     { next: { revalidate: 10000 } }
   );
 

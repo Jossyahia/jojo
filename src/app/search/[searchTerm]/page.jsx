@@ -1,8 +1,10 @@
+
+"use static"
 import Results from "@/components/Results";
 
 export default async function SearchPage({ params }) {
   const res = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${params.searchTerm}&language=en-US&include_adult=false`
+    `https://victorious-teal-school-uniform.cyclic.app/api`
   );
 
   if (!res.ok) {
