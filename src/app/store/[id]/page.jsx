@@ -1,4 +1,4 @@
-"use static"
+//"use static"
 import Image from "next/image";
 
 async function getMovie(_id) {

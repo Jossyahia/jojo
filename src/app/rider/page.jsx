@@ -4,7 +4,7 @@ const RiderPage = () => {
   return (
     <div>
         <h1>
-            Rider Page
+           coming soon Rider Page
         </h1>
     </div>
   )
