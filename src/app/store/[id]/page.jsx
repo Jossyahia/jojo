@@ -28,17 +28,17 @@ export default async function MoviePage({ params }) {
           alt="Product Image"
         ></Image>
         <div className="p-2">
-          <h2 className="text-lg mb-3 font-bold">{result.title}</h2>
+          <h2 className="text-lg mb-3 font-bold text-amber-600">{result.title}</h2>
           <p className="text-lg mb-3">
-            <span className="font-semibold mr-1">Product Description:</span>
+            <span className="font-semibold mr-1 text-amber-600">Product Description:</span>
             {result.description}
           </p>
           <p className="mb-3">
-            <span className="font-semibold mr-1">Date Released:</span>
-            {result.createdAt}
+            <span className="font-semibold mr-1 text-amber-600">Posted:</span>
+            {result.createdAt.substring(0, 10)}
           </p>
           <p className="mb-3">
-            <span className="font-semibold mr-1">Likes:</span>
+            <span className="font-semibold mr-1 text-amber-600">Likes:</span>
             {result.likes}
           </p>
         </div>
