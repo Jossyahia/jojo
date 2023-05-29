@@ -10,6 +10,7 @@ export default function Header() {
       <div className="flex">
         <MenuItem title="HOME" address="/" Icon={AiFillHome} />
         <MenuItem title="ABOUT" address="/about" Icon={BsFillInfoCircleFill} />
+        <MenuItem title="Blog" address="/blog" Icon={BsFillInfoCircleFill} />
       </div>
       <div className="flex items-center space-x-5">
         <DarkModeSwitch />
