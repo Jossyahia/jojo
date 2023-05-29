@@ -1,5 +1,5 @@
 {
-  "name": "imdb",
+  "name": "jojo_app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,10 +14,10 @@
     "dateformat": "^5.0.3",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
-    "next": "13.1.5",
+    "next": "^13.4.4",
     "next-themes": "^0.2.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-multi-carousel": "^2.8.3",
     "react-responsive-carousel": "^3.2.23",
