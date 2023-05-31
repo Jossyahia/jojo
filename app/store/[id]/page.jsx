@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 //"use static"
 import Image from "next/image";
 
@@ -12,6 +11,7 @@ async function getMovie(_id) {
 export default async function MoviePage({ params }) {
   const _id = params.id;
   const result = await getMovie(_id);
+  const shortTime = result.createdAt?.substring(0, 10);
   return (
     <div className="w-full">
       <div className="p-4 md:pt-8 flex flex-col md:flex-row items-center content-center max-w-6xl mx-auto md:space-x-6">
@@ -29,14 +29,18 @@ export default async function MoviePage({ params }) {
           alt="Product Image"
         ></Image>
         <div className="p-2">
-          <h2 className="text-lg mb-3 font-bold text-amber-600">{result.title}</h2>
+          <h2 className="text-lg mb-3 font-bold text-amber-600">
+            {result.title}
+          </h2>
           <p className="text-lg mb-3">
-            <span className="font-semibold mr-1 text-amber-600">Product Description:</span>
+            <span className="font-semibold mr-1 text-amber-600">
+              Product Description:
+            </span>
             {result.description}
           </p>
           <p className="mb-3">
             <span className="font-semibold mr-1 text-amber-600">Posted:</span>
-            {result.createdAt.substring(0, 10)}
+            {shortTime}
           </p>
           <p className="mb-3">
             <span className="font-semibold mr-1 text-amber-600">Likes:</span>
